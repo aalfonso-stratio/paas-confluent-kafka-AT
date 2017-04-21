@@ -13,7 +13,25 @@ mvn verify [-D\<ENV_VAR>=\<VALUE>] [-Dit.test=\<TEST_TO_EXECUTE>|-Dgroups=\<GROU
 
 Example:
 
-mvn verify -U -DDCOS_CLUSTER=10.200.0.182 -DDCOS_CLUSTER_PORT=80 -DDCOS_CLI_HOST=dcos-cli.demo.stratio.com -DUNIVERSE_URL=http://172.19.1.158/universe.zip -Dgroups=confluent
+mvn verify -DDCOS_IP=10.200.1.11 -DDCOS_CLI_HOST=dcos-cli-11.ali.com -DMESOS_API_PORT=5050 -DDCOS_USER=root -DDCOS_PASSWORD=stratio -DDCOS_EMAIL=qatest@stratio.com -DEXHIBITOR_API_PORT=8181 -DDCOS_ZK_PORT=2181 -DSERVICE_ZK_PORT=31886 -DDCOS_PEM=none -DPSQL_HOST=paaspostgresbd.labs.stratio.com -DPSQL_PORT=5432  -DPSQL_DB=services -DDCOS_CLUSTER_PORT=80 -DSERVICE=confluent-kafka -Dgroups=confluent-kafka-installation2 -Dmaven.failsafe.debug
+
+- installation
+mvn verify -DDCOS_IP=10.200.0.46 -DDCOS_CLI_HOST=dcos-cli.demo.labs.stratio.com -DDCOS_USER=root -DDCOS_PASSWORD=stratio -DPEM_FILE=none -DREMOTE_USER=root -DREMOTE_PASSWORD=stratio -DVAULT_HOST=gosec2.node.paas.labs.stratio.com -DVAULT_PORT=8200 -DVAULT_TOKEN=906cfbe3-7567-0c92-e1bd-c1d77eb9f460 -Dgroups=installation
+
+- configuration
+mvn verify -DDCOS_IP=10.200.0.46 -DDCOS_CLI_HOST=dcos-cli.demo.labs.stratio.com -DMESOS_API_PORT=5050 -DDCOS_USER=root -DDCOS_PASSWORD=stratio -Dgroups=configuration
+
+- functionality
+mvn verify -U -Dgroups=functionality -DDCOS_IP=10.200.0.46 -DDCOS_CLI_HOST=dcos-cli.demo.labs.stratio.com -DMESOS_API_PORT=5050 -DDCOS_USER=root -DDCOS_PASSWORD=stratio -DPEM_FILE=none -DKAFKA_TOPIC=alftopic -DDCOS_ZK_PORT=2181 -DREMOTE_USER=root -DREMOTE_PASSWORD=stratio -DNUM_PARTITIONS=3
+
+- service discovery
+mvn verify -Dgroups=serviceDiscovery -DDCOS_IP=10.200.0.46 -DDCOS_CLI_HOST=dcos-cli.demo.labs.stratio.com -DDCOS_USER=root -DDCOS_PASSWORD=stratio -DDCOS_CLUSTER_PORT=80 -DREMOTE_USER=root -DREMOTE_PASSWORD=stratio -DMASTER_HOSTNAME=master-1.node.paas.labs.stratio.com
+
+- multi-instance
+mvn verify -Dgroups=multi_instance -DDCOS_IP=10.200.0.46 -DDCOS_CLI_HOST=dcos-cli.demo.labs.stratio.com -DDCOS_USER=root -DDCOS_PASSWORD=stratio -DDCOS_CLUSTER_PORT=80 -DREMOTE_USER=root -DREMOTE_PASSWORD=stratio -DMASTER_HOSTNAME=master-1.node.paas.labs.stratio.com -DVAULT_HOST=gosec2.node.paas.labs.stratio.com -DVAULT_PORT=8200 -DVAULT_TOKEN=906cfbe3-7567-0c92-e1bd-c1d77eb9f460 -DMESOS_API_PORT=5050
+
+- haft
+mvn verify -Dgroups=haft -DDCOS_IP=10.200.0.46 -DDCOS_CLI_HOST=dcos-cli.demo.labs.stratio.com -DDCOS_USER=root -DDCOS_PASSWORD=stratio -DDCOS_CLUSTER_PORT=80 -DREMOTE_USER=root -DREMOTE_PASSWORD=stratio -DMESOS_API_PORT=5050 -DEXHIBITOR_API_PORT=8181
 
 By default, in jenkins we will execute the group confluent, which should contain a subset of tests, that are key to the functioning of the module and the ones generated for the new feature.
 

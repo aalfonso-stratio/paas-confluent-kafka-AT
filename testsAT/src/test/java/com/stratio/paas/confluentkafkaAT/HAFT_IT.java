@@ -13,21 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.stratio.confluent.testsAT.automated;
+package com.stratio.paas.confluentkafkaAT;
 
-import com.stratio.cucumber.testng.CucumberRunner;
+import com.stratio.qa.cucumber.testng.CucumberRunner;
 import com.stratio.tests.utils.BaseTest;
 import cucumber.api.CucumberOptions;
 import org.testng.annotations.Test;
 
-@CucumberOptions(features = { "src/test/resources/features/automated/installation.feature" })
-public class installation extends BaseTest {
+@CucumberOptions(features = { "src/test/resources/features/confluentkafkaAT/haft.feature" })
+public class HAFT_IT extends BaseTest {
 
-    public installation() {
+    public HAFT_IT() {
     }
 
-    @Test(enabled = true, groups = {"installation"})
-    public void installation() throws Exception {
+    @Test(enabled = true, groups = {"haft"})
+    public void haftTest() throws Exception {
         new CucumberRunner(this.getClass()).runCukes();
     }
 }

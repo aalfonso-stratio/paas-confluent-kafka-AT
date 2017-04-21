@@ -15,8 +15,8 @@
  */
 package com.stratio.tests.utils;
 
-import com.stratio.tests.utils.BaseGTest;
-import com.stratio.tests.utils.ThreadProperty;
+import com.stratio.qa.utils.BaseGTest;
+import com.stratio.qa.utils.ThreadProperty;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 

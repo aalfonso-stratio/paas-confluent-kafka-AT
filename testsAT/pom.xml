@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <stratio-test-bdd.version>0.3.0-SNAPSHOT</stratio-test-bdd.version>
+        <stratio-test-bdd.version>0.5.0-SNAPSHOT</stratio-test-bdd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>     
     </properties>
@@ -13,13 +13,13 @@
     <parent>
         <groupId>com.stratio</groupId>
         <artifactId>parent</artifactId>
-        <version>0.9.0-SNAPSHOT</version>
+        <version>0.9.0</version>
     </parent>
 
     <groupId>com.stratio.paas</groupId>
-    <artifactId>paas-confluent-kafka-AT</artifactId>
+    <artifactId>confluent-kafka-at</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <name>paas-confluent-kafka-AT</name>
+    <name>confluent-kafka-at</name>
 
     <build>
         <plugins>
@@ -45,9 +45,6 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.17</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>suite.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                     <properties>
                         <property>
                             <name>usedefaultlisteners</name>
@@ -55,7 +52,7 @@
                         </property>
                         <property>
                             <name>listener</name>
-                            <value>com.stratio.tests.utils.JaCoCoClient</value>
+                            <value>com.stratio.qa.utils.JaCoCoClient</value>
                         </property>
                     </properties>
                     <argLine>-Xmx1024m -XX:+HeapDumpOnOutOfMemoryError
@@ -69,7 +66,7 @@
     <dependencies>
         <dependency>
             <groupId>com.stratio.qa</groupId>
-            <artifactId>bdt-lib</artifactId>
+            <artifactId>bdt</artifactId>
             <version>${stratio-test-bdd.version}</version>
         </dependency>
         <dependency>
