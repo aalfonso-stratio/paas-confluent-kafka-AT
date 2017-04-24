@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.stratio.confluent.testsAT.automated;
+package com.stratio.paas.confluentkafkaAT;
 
-import com.stratio.cucumber.testng.CucumberRunner;
+import com.stratio.qa.cucumber.testng.CucumberRunner;
 import com.stratio.tests.utils.BaseTest;
 import cucumber.api.CucumberOptions;
 import org.testng.annotations.Test;
 
-@CucumberOptions(features = { "src/test/resources/features/automated/service_discovery.feature" })
-public class serviceDiscovery extends BaseTest {
+@CucumberOptions(features = { "src/test/resources/features/confluentkafkaAT/serviceDiscovery.feature" })
+public class ServiceDiscovery_IT extends BaseTest {
 
-    public serviceDiscovery() {
+    public ServiceDiscovery_IT() {
     }
 
-    @Test(enabled = true, groups = {"serviceDiscovery"}, dependsOnGroups = {"installation"})
+    @Test(enabled = true, groups = {"serviceDiscovery"})
     public void serviceDiscovery() throws Exception {
         new CucumberRunner(this.getClass()).runCukes();
     }

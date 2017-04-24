@@ -1,9 +1,8 @@
 @rest
-Feature: Fuctionality
+Feature: Functionality
   Background:
-    Given I want to authenticate in DCOS cluster '${DCOS_CLUSTER}' with email '${DCOS_EMAIL}' with user '${DCOS_USER}' and password '${DCOS_PASSWORD}' using pem file '${DCOS_PEM}'
-    And I connect to kafka cluster at '${DCOS_CLUSTER}':'${DCOS_ZK_PORT}' using path '${SERVICE}'
-    Given I open remote ssh connection to host '${DCOS_CLI_HOST}' with user '${DCOS_USER}' and password '${DCOS_PASSWORD}' using pem file '${DCOS_PEM}'
+    Given I authenticate to DCOS cluster '${DCOS_IP}' using email '${DCOS_USER}' with user '${REMOTE_USER}' and password '${REMOTE_PASSWORD}'
+    And I connect to kafka at '${DCOS_IP}:${DCOS_ZK_PORT}' using path 'dcos-service-confluent-kafka-sec'
 
   Scenario: [Kafka-Functional-Spec-01] - Create topic
     When I create a Kafka topic named '${KAFKA_TOPIC}1'
@@ -15,11 +14,10 @@ Feature: Fuctionality
     Then A kafka topic named '${KAFKA_TOPIC}2' exists
 
   Scenario: [Kafka-Functional-Spec-02] - Change enable.delete.topic config create topic and delete topic
-    When I modify the enviroment variable '$.env.KAFKA_OVERRIDE_DELETE_TOPIC_ENABLE' with value 'true' in service '${SERVICE}'
+    Given I open a ssh connection to '${DCOS_CLI_HOST}' with user '${DCOS_USER}' and password '${DCOS_PASSWORD}' using pem file '${PEM_FILE}'
+    When I modify marathon environment variable '$.env.KAFKA_OVERRIDE_DELETE_TOPIC_ENABLE' with value 'true' for service 'confluent-kafka-sec'
     When I create a Kafka topic named '${KAFKA_TOPIC}3'
-    Then in less than '200' seconds, checking each '20' seconds, the command output 'dcos task | grep ${SERVICE} | grep S | wc -l' contains '1'
-    Then in less than '360' seconds, checking each '20' seconds, the command output 'dcos task | grep ${SERVICE} | grep R | wc -l' contains '1'
-
+    Then in less than '360' seconds, checking each '20' seconds, the command output 'dcos task | grep confluent-kafka-sec | grep R | wc -l' contains '1'
     When I delete a Kafka topic named '${KAFKA_TOPIC}3'
     Then A kafka topic named '${KAFKA_TOPIC}3' not exists
 

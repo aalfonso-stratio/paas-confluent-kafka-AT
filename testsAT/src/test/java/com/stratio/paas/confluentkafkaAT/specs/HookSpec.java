@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.stratio.confluent.testsAT.specs;
+package com.stratio.paas.confluentkafkaAT.specs;
 
-public class BaseSpec {
+public class HookSpec extends BaseSpec {
 
-    protected Common commonspec;
-
-    public Common getCommonSpec() {
-        return this.commonspec;
+    public HookSpec(Common spec) {
+        this.commonspec = spec;
     }
+
 }

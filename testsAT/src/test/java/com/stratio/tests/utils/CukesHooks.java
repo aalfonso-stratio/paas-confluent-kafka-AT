@@ -15,10 +15,10 @@
  */
 package com.stratio.tests.utils;
 
-import com.stratio.cucumber.testng.ICucumberFormatter;
-import com.stratio.cucumber.testng.ICucumberReporter;
-import com.stratio.confluent.testsAT.specs.BaseSpec;
-import com.stratio.confluent.testsAT.specs.Common;
+import com.stratio.qa.cucumber.testng.ICucumberFormatter;
+import com.stratio.qa.cucumber.testng.ICucumberReporter;
+import com.stratio.paas.confluentkafkaAT.specs.BaseSpec;
+import com.stratio.paas.confluentkafkaAT.specs.Common;
 import gherkin.formatter.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

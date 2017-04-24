@@ -13,29 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.stratio.confluent.testsAT.specs;
+package com.stratio.paas.confluentkafkaAT.specs;
 
-import com.stratio.specs.CommonG;
-import java.net.Socket;
-import java.nio.channels.ServerSocketChannel;
+public class BaseSpec {
 
-public class Common extends CommonG {
-    private ServerSocketChannel serverSocket;
-    private Socket socket;
+    protected Common commonspec;
 
-    public ServerSocketChannel getServerSocket() {
-        return serverSocket;
-    }
-
-    public void setServerSocket(ServerSocketChannel serverSocket) {
-        this.serverSocket = serverSocket;
-    }
-
-    public Socket getSocket() {
-        return socket;
-    }
-
-    public void setSocket(Socket socket) {
-        this.socket = socket;
+    public Common getCommonSpec() {
+        return this.commonspec;
     }
 }

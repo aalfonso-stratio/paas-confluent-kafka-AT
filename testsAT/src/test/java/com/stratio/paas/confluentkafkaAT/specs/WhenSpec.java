@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.stratio.confluent.testsAT.specs;
+package com.stratio.paas.confluentkafkaAT.specs;
 
 import cucumber.api.java.en.When;
 
@@ -23,7 +23,7 @@ import java.io.PrintStream;
 import java.net.InetSocketAddress;
 import java.nio.channels.ServerSocketChannel;
 
-import static com.stratio.assertions.Assertions.assertThat;
+import static com.stratio.qa.assertions.Assertions.assertThat;
 
 public class WhenSpec extends BaseSpec {
 
