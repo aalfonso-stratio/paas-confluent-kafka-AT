@@ -19,15 +19,19 @@ import com.stratio.qa.cucumber.testng.CucumberRunner;
 import com.stratio.tests.utils.BaseTest;
 import cucumber.api.CucumberOptions;
 import org.testng.annotations.Test;
+import org.testng.annotations.Factory;
+import com.stratio.qa.data.BrowsersDataProvider;
 
-@CucumberOptions(features = { "src/test/resources/features/confluentkafkaAT/schemaRegistry.feature" })
-public class SchemaRegistry_IT extends BaseTest {
+@CucumberOptions(features = { "src/test/resources/features/confluentkafkaAT/scalability.feature" })
+public class Scalability_IT extends BaseTest {
 
-    public SchemaRegistry_IT() {
+    @Factory(enabled = false, dataProviderClass = BrowsersDataProvider.class, dataProvider = "availableUniqueBrowsers")
+    public Scalability_IT(String browser) {
+        this.browser = browser;
     }
 
-    @Test(enabled = true, groups = {"schemaregistry"})
-    public void registry() throws Exception {
+    @Test(enabled = true, groups = {"scalability"})
+    public void scalability() throws Exception {
         new CucumberRunner(this.getClass()).runCukes();
     }
 }

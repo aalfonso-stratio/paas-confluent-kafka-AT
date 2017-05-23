@@ -28,10 +28,6 @@
     "volumes": [],
     "docker": {
       "image": "qa.stratio.com/stratio/cp-schema-registry:latest",
-<<<<<<< HEAD
-      "network": "HOST",
-      "portMappings": null,
-=======
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -44,7 +40,6 @@
           }
         }
       ],
->>>>>>> 97326a19827450dd5c664726155f42d17276593a
       "privileged": false,
       "parameters": [],
       "forcePullImage": true
@@ -53,20 +48,12 @@
   "healthChecks": [
     {
       "protocol": "TCP",
-<<<<<<< HEAD
-=======
       "portIndex": 0,
->>>>>>> 97326a19827450dd5c664726155f42d17276593a
       "gracePeriodSeconds": 60,
       "intervalSeconds": 60,
       "timeoutSeconds": 20,
       "maxConsecutiveFailures": 3,
-<<<<<<< HEAD
-      "ignoreHttp1xx": false,
-      "port": 8081
-=======
       "ignoreHttp1xx": false
->>>>>>> 97326a19827450dd5c664726155f42d17276593a
     }
   ],
   "readinessChecks": [],
@@ -78,11 +65,7 @@
   "labels": {
     "DCOS_PACKAGE_RELEASE": "0",
     "DCOS_SERVICE_SCHEME": "http",
-<<<<<<< HEAD
-    "DCOS_PACKAGE_SOURCE": "http://172.19.1.245:8080/repo",
-=======
     "DCOS_PACKAGE_SOURCE": "http://172.19.1.0:8080/repo",
->>>>>>> 97326a19827450dd5c664726155f42d17276593a
     "DCOS_PACKAGE_METADATA": "eyJwYWNrYWdpbmdWZXJzaW9uIjoiMy4wIiwibmFtZSI6ImNvbmZsdWVudC1zY2hlbWEtcmVnaXN0cnktc2VjIiwidmVyc2lvbiI6IjAuOS42LTMuMS4xIiwibWFpbnRhaW5lciI6InN1cHBvcnRAc3RyYXRpby5jb20iLCJkZXNjcmlwdGlvbiI6IkNvbmZsdWVudCBTY2hlbWEgUmVnaXN0cnkgc2VydmljZVxuXG5cdERvY3VtZW50YXRpb246IGh0dHA6Ly9kb2NzLmNvbmZsdWVudC5pby8zLjEuMS9zY2hlbWEtcmVnaXN0cnkvZG9jcy9pbnRyby5odG1sIiwidGFncyI6WyJrYWZrYSIsImNvbmZsdWVudCIsInNjaGVtYSIsInJlZ2lzdHJ5IiwiVExTIl0sInNlbGVjdGVkIjpmYWxzZSwic2NtIjoiaHR0cHM6Ly9naXRodWIuY29tL2NvbmZsdWVudGluYy9zY2hlbWEtcmVnaXN0cnkiLCJmcmFtZXdvcmsiOmZhbHNlLCJwcmVJbnN0YWxsTm90ZXMiOiJQcmVwYXJpbmcgdG8gaW5zdGFsbCBjb25mbHVlbnQtc2NoZW1hLXJlZ2lzdHJ5IiwicG9zdEluc3RhbGxOb3RlcyI6ImNvbmZsdWVudC1zY2hlbWEtcmVnaXN0cnkgaGFzIGJlZW4gaW5zdGFsbGVkLiIsInBvc3RVbmluc3RhbGxOb3RlcyI6ImNvbmZsdWVudC1zY2hlbWEtcmVnaXN0cnkgd2FzIHVuaW5zdGFsbGVkIHN1Y2Nlc3NmdWxseS4iLCJsaWNlbnNlcyI6W3sibmFtZSI6IkFwYWNoZSBMaWNlbnNlIHYyIiwidXJsIjoiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2NvbmZsdWVudGluYy9zY2hlbWEtcmVnaXN0cnkvbWFzdGVyL0xJQ0VOU0UifV0sImltYWdlcyI6eyJpY29uLXNtYWxsIjoiaHR0cHM6Ly9zMy11cy13ZXN0LTIuYW1hem9uYXdzLmNvbS9jb25mbHVlbnQtbWVzb3MtZGV2ZWwvQ29uZkljb25fc21hbGwucG5nIiwiaWNvbi1tZWRpdW0iOiJodHRwczovL3MzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tL2NvbmZsdWVudC1tZXNvcy1kZXZlbC9Db25mSWNvbl9tZWRpdW0ucG5nIiwiaWNvbi1sYXJnZSI6Imh0dHBzOi8vczMtdXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vY29uZmx1ZW50LW1lc29zLWRldmVsL0NvbmZJY29uX2xhcmdlLnBuZyJ9fQ==",
     "DCOS_PACKAGE_REGISTRY_VERSION": "3.0",
     "DCOS_SERVICE_NAME": "schema-registry-sec",
@@ -100,11 +83,7 @@
   "taskKillGracePeriodSeconds": null,
   "portDefinitions": [
     {
-<<<<<<< HEAD
-      "port": 8081,
-=======
       "port": 10001,
->>>>>>> 97326a19827450dd5c664726155f42d17276593a
       "protocol": "tcp",
       "name": "schema-registry-sec",
       "labels": {
